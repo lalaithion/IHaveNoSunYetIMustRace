@@ -9,7 +9,9 @@ total_frames = 0
 average_fps = 0
 last_time = time.time()
 
-for array in screen.capture(monitor):
+for array in screen.capture_processed(
+    monitor, saturate=False, contrast=False, sharpen=False
+):
 
     print(array.shape)
 
