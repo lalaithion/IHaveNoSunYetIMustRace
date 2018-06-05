@@ -14,7 +14,7 @@ def capture(info):
             yield array
 
 
-def capture_processed(info, width=25, saturate=True, contrast=True, sharpen=True):
+def capture_processed(info, width=20, saturate=True, contrast=True, sharpen=True):
     height = int(width * info["height"] / info["width"])
 
     with mss.mss() as sct:
@@ -44,5 +44,7 @@ def capture_processed(info, width=25, saturate=True, contrast=True, sharpen=True
             if contrast:
                 control = ImageEnhance.Contrast(img)
                 img = control.enhance(2.0)
+
+            # img.save("tmp/{}.png".format(datetime.datetime.now()))
 
             yield np.asarray(img, dtype=np.uint8)
