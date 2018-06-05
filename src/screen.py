@@ -45,6 +45,4 @@ def capture_processed(info, width=25, saturate=True, contrast=True, sharpen=True
                 control = ImageEnhance.Contrast(img)
                 img = control.enhance(2.0)
 
-            img.save("tmp/image_{}.png".format(datetime.datetime.now()))
-
             yield np.asarray(img, dtype=np.uint8)
