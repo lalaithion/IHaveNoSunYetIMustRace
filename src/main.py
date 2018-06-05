@@ -2,16 +2,14 @@ import time
 
 import screen
 
-monitor = {"top": 51, "left": 758, "width": 640, "height": 480}
+monitor = {"top": 172, "left": 822, "width": 505, "height": 280}
 
 
 total_frames = 0
 average_fps = 0
 last_time = time.time()
 
-for array in screen.capture_processed(
-    monitor, saturate=False, contrast=False, sharpen=False
-):
+for array in screen.capture_processed(monitor):
 
     print(array.shape)
 
